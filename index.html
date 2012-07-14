@@ -1,0 +1,44 @@
+<html>
+   <head>
+      <title>Dynamic Form</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+      <script type="text/javascript" src="dynamicform.js"></script>
+   </head>
+   <body>
+      <div id="message"></div>
+
+      <form id="form" method="get" action=".">
+         <p>
+            <label for="id_subject">Subject:</label>
+            <input id="id_subject" type="text" name="subject" maxlength="100" />
+         </p>
+         <p>
+            <label for="id_message">Message:</label>
+            <input type="text" name="message" id="id_message" />
+         </p>
+         <p>
+            <label for="id_sender">Sender:</label>
+            <input type="text" name="sender" id="id_sender" />
+         </p>
+         <p>
+            <label for="id_cc_myself">Cc myself:</label>
+            <input type="checkbox" name="cc_myself" id="id_cc_myself" />
+         </p>
+         <p><input type="submit" value="Submit" /></p>
+      </form>
+
+   <script type="text/javascript">
+      $(document).ready( function() {
+         var email_form = $("#form").dynamicForm();
+	 var attrs = email_form.subject.attributes;
+	 console.log(email_form.subject.name + " {");
+	 for(var i = 0; i < attrs.length; i++ ) {
+		console.log("  "+attrs[i].nodeName + ": " + attrs[i].nodeValue);
+	 }
+	 console.log("}");
+	 //console.log(email_form.subject.attributes);
+      });
+   </script>
+
+   </body>
+</html>
