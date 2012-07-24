@@ -1,0 +1,40 @@
+TODO
+=====
+
+High
+---
+1. **0** Refactor plugin to use method invocation for 'init' and other
+   functions. (Make object JavaScript, not jQuery?)
+
+1. **1** _(Settings object)_ Provide an argument to init to use either 'name', 'id', or a user
+   determined property of the tag.
+
+Normal
+---
+1. Add hide() and show() functions that hide the input and a parent
+   element, iff the only thing that parent element contains is the input
+   and a label element.
+
+1. Determine a way (perhaps using live) to update the object with new
+   input elements if they are dynamically added.
+
+1. Provide a way to use $(body).dynamicForm() to generate dynamic forms
+   for all forms in the body. Return a list of the forms, or provide
+   them as dyform1, dyform2, ..., as variables in global scope.
+
+1. Create an easy mechanism for selects that only have a single option
+   to be changed to text fields that are read-only. (This might be a
+   separate object/project)
+
+1. Make sure textarea and select are included in the collection of
+   properties.
+
+1. Provide a way to handle fieldsets, so that form elements are
+   organized by fieldsets. (i.e. form.fieldset\_name.field)
+
+1. Find a good way to test jQuery plugin.
+
+
+| Author          | Date                         |
+| --------------- | ---------------------------- |
+| Trevor Bramwell | Mon Jul 16 00:51:08 PDT 2012 |
