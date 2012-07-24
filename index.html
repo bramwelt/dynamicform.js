@@ -1,10 +1,11 @@
 <html>
    <head>
       <title>Dynamic Form</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-      <script type="text/javascript" src="dynamicform.js"></script>
+      <script type="text/javascript" src="jquery/jquery-1.7.2.min.js"></script>
+      <script type="text/javascript" src="dynamicform/dynamicform.js"></script>
    </head>
    <body>
+      <div id="qunit-fixture"></div>
       <div id="message"></div>
 
       <form id="form" method="get" action=".">
@@ -24,19 +25,36 @@
             <label for="id_cc_myself">Cc myself:</label>
             <input type="checkbox" name="cc_myself" id="id_cc_myself" />
          </p>
-         <p><input type="submit" value="Submit" /></p>
+         <p><input type="submit" id="submit" name="submit" value="Submit" /></p>
       </form>
 
    <script type="text/javascript">
       $(document).ready( function() {
-         var email_form = $("#form").dynamicForm();
-	 var attrs = email_form.subject.attributes;
-	 console.log(email_form.subject.name + " {");
-	 for(var i = 0; i < attrs.length; i++ ) {
-		console.log("  "+attrs[i].nodeName + ": " + attrs[i].nodeValue);
-	 }
-	 console.log("}");
-	 //console.log(email_form.subject.attributes);
+         var email_form = $("#form").dynamicForm({'property':'name'});
+         //console.dir(email_form);
+         console.dir(email_form);
+         for( var i = 0; i < email_form.inputs.length; i++) {
+            var input = email_form[email_form.inputs[i]];
+            //console.dir(input);
+            var attrs = input.attributes;
+
+            console.log(email_form.inputs[i]);
+               for(var j = 0; j < attrs.length; j++ ) {
+                  console.log("  "+attrs[j].nodeName + ": " + attrs[j].nodeValue);
+               }
+         }
+         //var attrs = email_form.subject.attributes;
+         /*console.log('It works!');*/
+         /*
+         console.log(email_form.subject.name + " {");
+
+         for(var i = 0; i < attrs.length; i++ ) {
+            console.log("  "+attrs[i].nodeName + ": " + attrs[i].nodeValue);
+         }
+
+         console.log("}");
+         //console.log(email_form.subject.attributes);
+         */
       });
    </script>
 
